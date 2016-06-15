@@ -8,7 +8,7 @@ import contract.IModel;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author Flavien Galhardo
  */
 public class Model extends Observable implements IModel {
 
