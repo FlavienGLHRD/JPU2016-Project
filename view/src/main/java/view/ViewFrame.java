@@ -19,66 +19,66 @@ import contract.IModel;
 class ViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
-	private IModel						model;
+	private IModel model;
 
 	/** The controller. */
-	private IController				controller;
+	private IController controller;
 	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -697358409737458175L;
+	private static final long serialVersionUID = -697358409737458175L;
 
 	/**
 	 * Instantiates a new view frame.
 	 *
 	 * @param model
-	 *          the model
+	 *            the model
 	 * @throws HeadlessException
-	 *           the headless exception
+	 *             the headless exception
 	 */
 	public ViewFrame(final IModel model) throws HeadlessException {
-		this.buildViewFrame(model);
+		buildViewFrame(model);
 	}
 
 	/**
 	 * Instantiates a new view frame.
 	 *
 	 * @param model
-	 *          the model
+	 *            the model
 	 * @param gc
-	 *          the gc
+	 *            the gc
 	 */
 	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
 		super(gc);
-		this.buildViewFrame(model);
+		buildViewFrame(model);
 	}
 
 	/**
 	 * Instantiates a new view frame.
 	 *
 	 * @param model
-	 *          the model
+	 *            the model
 	 * @param title
-	 *          the title
+	 *            the title
 	 * @throws HeadlessException
-	 *           the headless exception
+	 *             the headless exception
 	 */
 	public ViewFrame(final IModel model, final String title) throws HeadlessException {
 		super(title);
-		this.buildViewFrame(model);
+		buildViewFrame(model);
 	}
 
 	/**
 	 * Instantiates a new view frame.
 	 *
 	 * @param model
-	 *          the model
+	 *            the model
 	 * @param title
-	 *          the title
+	 *            the title
 	 * @param gc
-	 *          the gc
+	 *            the gc
 	 */
 	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
-		this.buildViewFrame(model);
+		buildViewFrame(model);
 	}
 
 	/**
@@ -87,14 +87,14 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @return the controller
 	 */
 	private IController getController() {
-		return this.controller;
+		return controller;
 	}
 
 	/**
 	 * Sets the controller.
 	 *
 	 * @param controller
-	 *          the new controller
+	 *            the new controller
 	 */
 	protected void setController(final IController controller) {
 		this.controller = controller;
@@ -106,14 +106,14 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @return the model
 	 */
 	protected IModel getModel() {
-		return this.model;
+		return model;
 	}
 
 	/**
 	 * Sets the model.
 	 *
 	 * @param model
-	 *          the new model
+	 *            the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
@@ -123,23 +123,23 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * Builds the view frame.
 	 *
 	 * @param model
-	 *          the model
+	 *            the model
 	 */
 	private void buildViewFrame(final IModel model) {
-		this.setModel(model);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
-		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
-		this.setLocationRelativeTo(null);
+		setModel(model);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		addKeyListener(this);
+		setContentPane(new ViewPanel(this));
+		this.setSize(800, 800);
+		setLocationRelativeTo(null);
 	}
 
 	/**
 	 * Prints the message.
 	 *
 	 * @param message
-	 *          the message
+	 *            the message
 	 */
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
@@ -160,7 +160,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
 	}
 
 	/*
