@@ -6,6 +6,7 @@ import World.World;
 
 public class Elements {
 	
+	private Permeability Permeability;
 	
 	public Elements(){
 		
@@ -19,7 +20,7 @@ public class Elements {
 		
 	}
 	public Permeability getPermeability(){
-		return null;
+		return this.Permeability;
 		
 	}
 	public Permeability setPermeability(Permeability Permeability){

@@ -16,7 +16,7 @@ public class Model extends Observable implements IModel {
 	private String message;
 
 	/**
-	 * Instantiates a new model.
+	 * Instantiates a new model.                                               
 	 */
 	public Model() {
 		this.message = "";
