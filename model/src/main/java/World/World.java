@@ -8,35 +8,36 @@ import MobileElements.Mobile;
 
 public class World {
 	
+	private static final Object Elements = null;
 	private int width;
 	private int height;
 	
-	public World(Integer width, Integer height){
+	public World(int width, int height){
 		
 	}
 	
-	public Integer getWidth(){
+	public int getWidth(){
 		return width;
 		
 	}
 	
-	public Integer getHeight(){
+	public int getHeight(){
 		return height;
 	}
 	
-	public void addElements(Elements Elements,Integer X,Integer Y){
+	public void addElements(Elements Elements,int x,int y){
 		
 	}
 	
-	public void getElements(Integer X,Integer Y){
+	public Object getElements(int x,int y){
+		return this.Elements;
+	}
+	
+	public void addMobile(Lorann hero,int x,int y){
 		
 	}
 	
-	public void addMobile(Lorann hero,Integer X,Integer Y){
-		
-	}
-	
-	public void addMobile(Mobile mobile,Integer X,Integer Y){
+	public void addMobile(Mobile mobile,int x,int y){
 		
 	}
 	

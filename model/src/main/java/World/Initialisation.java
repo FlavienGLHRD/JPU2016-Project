@@ -1,6 +1,8 @@
 package World;
 
 public class Initialisation {
+	private World World;
+
 	public Initialisation(){
 		
 	}
@@ -15,7 +17,7 @@ public class Initialisation {
 	}
 	
 	public World getWorld(){
-		return null;
+		return this.World;
 		
 	}
 	
