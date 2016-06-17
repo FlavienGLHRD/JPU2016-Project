@@ -25,7 +25,7 @@ public class World {
 		return height;
 	}
 	
-	public void addElements(Elements Elements,int x,int y){
+	public void addElements(int id){
 		
 	}
 	

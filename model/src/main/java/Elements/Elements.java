@@ -4,12 +4,13 @@ import java.awt.Image;
 
 import World.World;
 
-public class Elements {
+public class Elements{
 	
 	private Permeability Permeability;
 	
-	public Elements(){
-		
+
+	public Elements(int x, int y, String description) {
+		// TODO Auto-generated constructor stub
 	}
 	public Sprite getSprite(){
 		return null;

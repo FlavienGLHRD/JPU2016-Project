@@ -1,16 +1,26 @@
 package model;
 
+import java.beans.Statement;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import Elements.Elements;
+import World.World;
 
 /**
  * The Class DAOHelloWorld.
  *
  * @author Jean-Aymeric Diet
  */
-class DAOHelloWorld extends DAOEntity<HelloWorld> {
+ class DAOHelloWorld extends DAOEntity<World> {
+
+	public DAOHelloWorld(Connection connection) throws SQLException {
+		super(connection);
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -20,9 +30,6 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
-	public DAOHelloWorld(final Connection connection) throws SQLException {
-		super(connection);
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -30,7 +37,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#create(model.Entity)
 	 */
 	@Override
-	public boolean create(final HelloWorld entity) {
+	public boolean create(final World entity) {
 		// Not implemented
 		return false;
 	}
@@ -41,7 +48,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#delete(model.Entity)
 	 */
 	@Override
-	public boolean delete(final HelloWorld entity) {
+	public boolean delete(final World entity) {
 		// Not implemented
 		return false;
 	}
@@ -52,7 +59,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#update(model.Entity)
 	 */
 	@Override
-	public boolean update(final HelloWorld entity) {
+	public boolean update(final World entity) {
 		// Not implemented
 		return false;
 	}
@@ -62,23 +69,30 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
-	@Override
-	public HelloWorld find(final int id) {
-		HelloWorld helloWorld = new HelloWorld();
+	public ArrayList<Elements> find(final int id) {
+		
+		ArrayList<Elements> addElements = new ArrayList<Elements>();
 
 		try {
-			final String sql = "{call helloworldById(?)}";
+			final String sql = "{call searchonlyelements(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id);
-			call.execute();
+			call.setInt(1,id);
+			call.executeQuery();
 			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(id, resultSet.getString("key"), resultSet.getString("message"));
+			while (resultSet.next()) {
+				addElements.add(new Elements(resultSet.getInt("X"),resultSet.getInt("Y"),resultSet.getString("Description")));
 			}
-			return helloWorld;
-		} catch (final SQLException e) {
+			return addElements;
+		} 
+		catch (final SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	@Override
+	public World find(String key) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -87,7 +101,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
-	@Override
+	/*	@Override
 	public HelloWorld find(final String key) {
 		HelloWorld helloWorld = new HelloWorld();
 
@@ -105,6 +119,5 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
+	}*/
 }
