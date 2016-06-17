@@ -9,12 +9,12 @@ import World.World;
 
 public class Mobile extends Elements{
 	
-	private int x;
-	private int y;
+	private static int x;
+	private static int y;
 	private Point position;
 	
 	public Mobile(Sprite Sprite){
-		super();
+		super(x, y, null);
 		this.position = new Point();
 	}
 	

@@ -1,7 +1,7 @@
 package Elements;
 
 public class Sprite {
-	public Sprite(){
+	public Sprite(String string){
 		
 	}
 

@@ -8,12 +8,30 @@ import MobileElements.Mobile;
 
 public class World {
 	
-	private static final Object Elements = null;
+	private static Object Elements = null;
 	private int width;
 	private int height;
 	
 	public World(int width, int height){
+		World.Elements= new ArrayList<Elements>();
 		
+	}
+	
+	public World(){
+		this();
+		this.width = width;
+		this.height = height;
+		this.elements = new Element[this.getWidth()][this.getHeight()];
+
+		for (int y = 0; y < this.getHeight(); y++) {
+			for (int x = 0; x < this.getWidth(); x++) {
+				if ((y == 0) || (y == (height - 1)) || (x == 0) || (x == (width - 1))) {
+					this.addElement(MotionlessElements.MotionlessElements.BonesH, x, y);
+				} else {
+					this.addElement(MotionlessElements.LAND, x, y);
+				}
+			}
+		}
 	}
 	
 	public int getWidth(){
