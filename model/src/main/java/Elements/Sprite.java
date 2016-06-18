@@ -1,8 +1,33 @@
 package Elements;
 
-public class Sprite {
-	public Sprite(){
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
+
+import javax.imageio.ImageIO;
+
+public class Sprite extends StringWriter{
+	private Image image;
+	
+	public Sprite(final String c, final String image){
+		this.write(c);
+		try {
+			this.image = ImageIO.read(new File("images/" + image));
+			
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
-
+	
+	public Sprite (final String c) {
+		this(c, "noimage.jpg");
+		
+	}
+	
+	public Image getImage() {
+		return this.image;
+	}
 }

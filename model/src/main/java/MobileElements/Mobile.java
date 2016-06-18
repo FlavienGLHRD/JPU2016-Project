@@ -14,7 +14,7 @@ public class Mobile extends Elements{
 	private Point position;
 	
 	public Mobile(Sprite Sprite){
-		super();
+		super(Sprite, Permeability.BLOCKING);
 		this.position = new Point();
 	}
 	

@@ -3,41 +3,43 @@ package Elements;
 import java.awt.Image;
 
 import World.World;
+import aedt.showboard.ISquare;
 
-public class Elements{
-	
-	private Permeability Permeability;
-	
+public class Elements implements ISquare{
+	private Sprite sprite;
+	private Permeability permeability;
+	private World world;
 
-	public Elements(int x, int y, String description) {
-		// TODO Auto-generated constructor stub
+	public Elements(final Sprite sprite, final Permeability permeability) {
+		this.setSprite(sprite);
+		this.setPermeability(permeability);
 	}
-	public Sprite getSprite(){
-		return null;
-		
+
+	public Sprite getSprite() {
+		return this.sprite;
 	}
-	public Sprite setSprite(Sprite Sprite){
-		return null;
-		
+
+	private void setSprite(final Sprite sprite) {
+		this.sprite = sprite;		
 	}
 	public Permeability getPermeability(){
-		return this.Permeability;
+		return this.permeability;
 		
 	}
 	public Permeability setPermeability(Permeability Permeability){
-		return null;
+		return this.permeability = Permeability;
 		
 	}
 	public World getWorld(){
-		return null;
+		return this.world;
 		
 	}
 	public World setWorld(World World){
-		return null;
+		return this.world = World;
 		
 	}
 	public Image getImage(){
-		return null;
+		return this.getSprite().getImage();
 		
 	}
 
