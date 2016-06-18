@@ -9,11 +9,13 @@ import MobileElements.Mobile;
 public class World {
 	
 	private static Object Elements = null;
-	private int width;
-	private int height;
+	private static final Object Element = null;
+	private static final Mobile Mobile = null;
+	private ArrayList<Mobile> mobiles;
+	private Object hero;
 	
 	public World(int width, int height){
-		World.Elements= new ArrayList<Elements>();
+		this.mobiles = new ArrayList<Mobile>();
 		
 	}
 	
@@ -35,16 +37,22 @@ public class World {
 	}
 	
 	public int getWidth(){
-		return width;
+		return getWidth();
 		
 	}
 	
 	public int getHeight(){
-		return height;
+		return getHeight();
 	}
 	
 	public void addElements(int id){
-		
+		int x;
+		int y;
+		this.Elements = Element;
+		if (Element != null) {
+			((Elements) Element).setWorld(this);
+		}
+		this.setMobileHasChanged();
 	}
 	
 	public Object getElements(int x,int y){
@@ -52,11 +60,15 @@ public class World {
 	}
 	
 	public void addMobile(Lorann hero,int x,int y){
-		
+		this.setHero(hero);
+		this.addMobile((Mobile) hero, x, y);
 	}
 	
 	public void addMobile(Mobile mobile,int x,int y){
-		
+		this.mobiles.add(Mobile);
+		Mobile.setWorld(this, x, y);
+		this.setMobileHasChanged();
+		this.notifyObservers();
 	}
 	
 	public Elements getElements(){
@@ -65,7 +77,7 @@ public class World {
 	}
 	
 	public Lorann getHero(){
-		return null;
+		return this.getHero();
 		
 	}
 	
@@ -83,15 +95,17 @@ public class World {
 	}
 	
 	public void setHero(Lorann Hero){
-		
+		this.hero = hero;
+		this.setMobileHasChanged();
 	}
 
 	public void setMobileHasChanged(){
-		
+		this.setMobileHasChanged();
+		this.notifyObservers();
 	}
 	
 	public void notifyObservers(){
-		
+		super.notifyObservers();
 	}
 	
 	public void Spell(){

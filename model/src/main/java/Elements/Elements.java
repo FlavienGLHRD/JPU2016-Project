@@ -3,42 +3,42 @@ package Elements;
 import java.awt.Image;
 
 import World.World;
+import jpu2016.world.element.ISprite;
+import JPU2016.world.element.Permeability;
 
-public class Elements{
+public abstract class Elements{
 	
+	private static final Sprite Sprite;
+	private static final World World;
 	private Permeability Permeability;
 	
 
-	public Elements(int x, int y, String description) {
-		// TODO Auto-generated constructor stub
+	public void Element(final ISprite sprite, final Permeability permeability) {
+		this.setSprite((Sprite) sprite);
+		this.setPermeability(permeability);
 	}
 	public Sprite getSprite(){
-		return null;
-		
+		return this.Sprite;
 	}
 	public Sprite setSprite(Sprite Sprite){
-		return null;
-		
+		this.Sprite = Sprite;
 	}
 	public Permeability getPermeability(){
 		return this.Permeability;
 		
 	}
 	public Permeability setPermeability(Permeability Permeability){
-		return null;
-		
+		this.Permeability = Permeability;
 	}
 	public World getWorld(){
-		return null;
-		
+		return this.World;		
 	}
 	public World setWorld(World World){
-		return null;
+		this.World = World;
 		
 	}
 	public Image getImage(){
-		return null;
-		
+		return this.getSprite().getImage();
 	}
 
 }

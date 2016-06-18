@@ -14,7 +14,7 @@ public class Mobile extends Elements{
 	private Point position;
 	
 	public Mobile(Sprite Sprite){
-		super(x, y, null);
+		super();
 		this.position = new Point();
 	}
 	
@@ -107,5 +107,12 @@ public class Mobile extends Elements{
 	public void Collision(){
 		
 	}
+
+	public void Spell() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }
