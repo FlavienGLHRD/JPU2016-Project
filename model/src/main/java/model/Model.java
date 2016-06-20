@@ -16,7 +16,7 @@ public class Model extends Observable implements IModel {
 	private String message;
 
 	/**
-	 * Instantiates a new model.                                               
+	 * Instantiates a new model.
 	 */
 	public Model() {
 		this.message = "";
@@ -51,7 +51,7 @@ public class Model extends Observable implements IModel {
 	public void loadMessage(final String key) {
 		try {
 			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-
+			this.setMessage(daoHelloWorld.find(key).getMessage());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
