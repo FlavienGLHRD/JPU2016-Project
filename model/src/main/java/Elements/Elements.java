@@ -4,43 +4,51 @@ import java.awt.Image;
 
 import World.World;
 import aedt.showboard.ISquare;
+import contract.IElement;
+import contract.ISprite;
+import contract.IWorldEntity;
+import contract.Permeability;
 
-public class Elements implements ISquare{
-	private Sprite sprite;
+public class Elements implements IElement{
+	private ISprite sprite;
 	private Permeability permeability;
-	private World world;
+	private IWorldEntity lorannWorldEntity;
+	private IWorldEntity WorldEntity;
 
-	public Elements(final Sprite sprite, final Permeability permeability) {
+	
+
+
+	public Elements(final ISprite sprite, final Permeability permeability){
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
 	}
 
-	public Sprite getSprite() {
-		return this.sprite;
+
+	public ISprite getSprite() {
+		return sprite;
 	}
 
-	private void setSprite(final Sprite sprite) {
-		this.sprite = sprite;		
+
+	public void setSprite(ISprite sprite) {
+		this.sprite = sprite;
 	}
-	public Permeability getPermeability(){
-		return this.permeability;
-		
+
+
+	public Permeability getPermeability() {
+		return permeability;
 	}
-	public Permeability setPermeability(Permeability Permeability){
-		return this.permeability = Permeability;
-		
+
+
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
 	}
-	public World getWorld(){
-		return this.world;
-		
+	public IWorldEntity getWorldEntity() {
+		return WorldEntity;
 	}
-	public World setWorld(World World){
-		return this.world = World;
-		
-	}
-	public Image getImage(){
-		return this.getSprite().getImage();
-		
+
+
+	public void setWorldEntity(IWorldEntity WorldEntity) {
+		this.WorldEntity = WorldEntity;
 	}
 
 }
