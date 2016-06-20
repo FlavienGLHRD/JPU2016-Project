@@ -39,29 +39,28 @@ public class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_NUMPAD4:
-				return ControllerOrder.English;
-				//this.World.getHero().moveLeft();
-			case KeyEvent.VK_NUMPAD6:
-				return ControllerOrder.Francais;
-				//this.World.getHero().moveRight();
-			case KeyEvent.VK_NUMPAD8:
-				return ControllerOrder.Deutsch;
-				//this.World.getHero().moveUp();
-			case KeyEvent.VK_NUMPAD5:
-				return ControllerOrder.Indonesia;
-				//this.World.getHero().moveDown();
-			case KeyEvent.VK_NUMPAD7:
-				//this.World.getHero().moveUpLeft();
-			case KeyEvent.VK_NUMPAD9:
-				//this.World.getHero().moveUpRight();
 			case KeyEvent.VK_NUMPAD1:
-				//this.World.getHero().moveDownLeft();
+				//return ControllerOrder.DownLeft;
 			case KeyEvent.VK_NUMPAD3:
-				//this.World.getHero().moveDownRight();
-			default:
-				return ControllerOrder.English;
+				//return ControllerOrder.DownRight;
+			case KeyEvent.VK_NUMPAD4:
+				//return ControllerOrder.Left;
+			case KeyEvent.VK_NUMPAD5:
+				//return ControllerOrder.Down;
+			case KeyEvent.VK_NUMPAD6:
+				//return ControllerOrder.Right;
+			case KeyEvent.VK_NUMPAD7:
+				//return ControllerOrder.UpLeft;
+			case KeyEvent.VK_NUMPAD8:
+				//return ControllerOrder.Up;
+			case KeyEvent.VK_NUMPAD9:
+				//return ControllerOrder.UpRight;
+			case KeyEvent.VK_SPACE:
+				//return ControllerOrder.Space;
 		}
+
+			
+		return ControllerOrder.Indonesia;
 	}
 
 	/*
@@ -70,7 +69,7 @@ public class View implements IView, Runnable {
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
 	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
+		//this.viewFrame.printMessage(message);
 	}
 
 	/*
@@ -90,5 +89,6 @@ public class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+		
 	}
 }

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import contract.IWorldEntity;
 
 /**
  * The Class Model.
@@ -12,57 +13,23 @@ import contract.IModel;
  */
 public class Model extends Observable implements IModel {
 
-	/** The message. */
-	private String message;
+	final DAOHelloWorld daoHelloWorld;
+	private final IWorldEntity worldEntity;
+	
+	public Model() throws Exception{
+		this.daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
+		this.worldEntity = this.daoHelloWorld.find(3);
+		
 
-	/**
-	 * Instantiates a new model.                                               
-	 */
-	public Model() {
-		this.message = "";
+
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public String getMessage() {
-		return this.message;
+	public IWorldEntity getWorldEntity() {
+		return worldEntity;
 	}
-
-	/**
-	 * Sets the message.
-	 *
-	 * @param message
-	 *          the new message
-	 */
-	private void setMessage(final String message) {
-		this.message = message;
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadMessage(final String key) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			//this.setMessage(daoHelloWorld.find(key).getMessage());
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
+	
 	public Observable getObservable() {
-		return this;
+		// TODO Auto-generated method stub
+		return this.worldEntity.getObservable();
 	}
 }

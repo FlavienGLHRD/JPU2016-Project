@@ -76,15 +76,6 @@ abstract class DAOEntity<E> extends Entity {
 	 *          the id
 	 * @return the e
 	 */
-	public abstract ArrayList<Elements> find(int id);
-
-	/**
-	 * Find.
-	 *
-	 * @param key
-	 *          the key
-	 * @return the e
-	 */
-	public abstract E find(String key);
+	public abstract E find(int id);
 
 }

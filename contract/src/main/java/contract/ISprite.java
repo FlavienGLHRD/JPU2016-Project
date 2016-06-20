@@ -1,5 +1,7 @@
 package contract;
 
-public interface ISprite {
+import java.awt.Image;
 
+public interface ISprite {
+public Image getImage();
 }

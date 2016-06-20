@@ -10,13 +10,14 @@ import java.util.ArrayList;
 import Elements.Elements;
 import MotionlessElements.MotionlessElements;
 import World.World;
+import contract.IMotionless;
 
 /**
  * The Class DAOHelloWorld.
  *
  * @author Jean-Aymeric Diet
  */
- class DAOHelloWorld extends DAOEntity<World> {
+ class DAOHelloWorld extends DAOEntity<WorldEntity> {
 
 	public DAOHelloWorld(Connection connection) throws SQLException {
 		super(connection);
@@ -38,7 +39,7 @@ import World.World;
 	 * @see model.DAOEntity#create(model.Entity)
 	 */
 	@Override
-	public boolean create(final World entity) {
+	public boolean create(final WorldEntity entity) {
 		// Not implemented
 		return false;
 	}
@@ -49,7 +50,7 @@ import World.World;
 	 * @see model.DAOEntity#delete(model.Entity)
 	 */
 	@Override
-	public boolean delete(final World entity) {
+	public boolean delete(final WorldEntity entity) {
 		// Not implemented
 		return false;
 	}
@@ -60,7 +61,7 @@ import World.World;
 	 * @see model.DAOEntity#update(model.Entity)
 	 */
 	@Override
-	public boolean update(final World entity) {
+	public boolean update(final WorldEntity entity) {
 		// Not implemented
 		return false;
 	}
@@ -72,19 +73,18 @@ import World.World;
 	 */
 	public WorldEntity find(final int id) {
 		
-		//ArrayList<Elements> addElements = new ArrayList<Elements>();
 		WorldEntity worldEntity = new WorldEntity();
 		try {
-			final String sql = "{call searchonlyelements(?)}";
+			final String sql = "{call searchOnlyElements(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1,id);
-			call.executeQuery();
+			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while (resultSet.next()) {
-				worldEntity.addElement(MotionlessElements.getFromDbId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+				worldEntity.addElement((IMotionless) MotionlessElements.getFromDbId(resultSet.getInt("ID_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 			}
 			return worldEntity;
-			System.out.println(worldEntity);
+			//System.out.println(worldEntity);
 		} 
 		catch (final SQLException e) {
 			e.printStackTrace();
@@ -92,34 +92,5 @@ import World.World;
 		return null;
 	}
 
-	@Override
-	public World find(String key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(java.lang.String)
-	 */
-	/*	@Override
-	public HelloWorld find(final String key) {
-		HelloWorld helloWorld = new HelloWorld();
-
-		try {
-			final String sql = "{call helloworldByKey(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setString(1, key);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(resultSet.getInt("id"), key, resultSet.getString("message"));
-			}
-			return helloWorld;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}*/
+	
 }
