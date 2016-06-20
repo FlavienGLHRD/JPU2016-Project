@@ -1,6 +1,8 @@
 package MotionlessElements;
 
-	public abstract class MotionlessElements {
+import contract.IMotionless;
+
+public abstract class MotionlessElements {
 		
 		public static final MotionlessElements BONESH = new BonesH();
 		public static final MotionlessElements BONESV = new BonesV();
@@ -11,6 +13,14 @@ package MotionlessElements;
 
 		private static MotionlessElements MotionlessElements[]	= { BONESH, BONESV, ENERGYBALL, GATE, PURSE, BONESBALL };
 		
+		public static MotionlessElements getFromDbId(int dbId){
+			for ( MotionlessElements motionlessElements : MotionlessElements){
+				if(MotionlessFactory.getDbId() == dbId) {
+					return motionlessElements;
+				}
+			}
+			return null;
+		}
 	}
 
 

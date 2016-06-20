@@ -15,7 +15,7 @@ private final int dbId;
 		this.dbId = dbId;
 	}
 
-	public int getBddId() {
+	public int getDbId() {
 		return dbId;
 	}
 

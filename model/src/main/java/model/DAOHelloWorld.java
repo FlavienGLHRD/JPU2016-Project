@@ -69,10 +69,10 @@ import World.World;
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
-	public ArrayList<Elements> find(final int id) {
+	public WorldEntity find(final int id) {
 		
 		ArrayList<Elements> addElements = new ArrayList<Elements>();
-
+		WorldEntity worldEntity = new WorldEntity();
 		try {
 			final String sql = "{call searchonlyelements(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
