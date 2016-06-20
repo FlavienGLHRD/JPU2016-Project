@@ -5,10 +5,9 @@ import Elements.Permeability;
 import Elements.Sprite;
 
 public class Spell {
-	int aa = 0;
+	int number = 0;
 	
-	private Spell()
-	{}
+	
  
 	private static Spell INSTANCE = null;
  
@@ -20,17 +19,42 @@ public class Spell {
 		return INSTANCE;
 	}
 	
-	public Spell() {
-		super(new Sprite("camp.jpg"), Permeability.PENETRABLE, 'C');
+	switch(number)
+	{
+		case 0:
+			super(new Sprite("fireball_1.jpg"), Permeability.PENETRABLE, 'e');
+			number = number +1;
+			break;
+		case 1:
+			super(new Sprite("fireball_2.jpg"), Permeability.PENETRABLE, 'e');
+			number = number +1;
+			break;
+		case 2:
+			super(new Sprite("fireball_3.jpg"), Permeability.PENETRABLE, 'e');
+			number = number +1;
+			break;
+		case 3:
+			super(new Sprite("fireball_4.jpg"), Permeability.PENETRABLE, 'e');
+			number = number +1;
+			break;
+		case 4:
+			super(new Sprite("fireball_5.jpg"), Permeability.PENETRABLE, 'e');
+			number = 0;
+			break;
 	}
+	
+	/*public Spell() {
+		super(new Sprite("camp.jpg"), Permeability.PENETRABLE, 'C');
+	}*/
 	
 	//private static Singleton;
 	
-	private void setX(int i) {
+	private void setX (int i ) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	
 	private void setY(int i) {
 		// TODO Auto-generated method stub
 		
