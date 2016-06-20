@@ -68,9 +68,71 @@ public class Lorann extends Mobile{
 	}
 	
 	public void Animate(){
+        int number = 0;
+		    while (true)       
+		     { try              
+		        {  
+				switch(number)
+				{
+					case 0:
+						new Sprite("lorann_u.png");
+						number = number +1;
+						Thread.sleep(100);
+						 repaint();  
+					case 1:
+						new Sprite("lorann_ur.png");
+							number = number +1;
+							Thread.sleep(100);
+							 repaint();  
+					case 2:
+						new Sprite("lorann_r.png");
+						number = number +1;
+						Thread.sleep(100);
+						 repaint();  					
+					case 3:
+						new Sprite("lorann_br.png");
+						number = number +1;
+						Thread.sleep(100);
+						repaint();  
+					case 4:
+						new Sprite("lorann_b.png");
+						number = number +1;
+						Thread.sleep(100);
+						repaint();  
+					case 5:
+						new Sprite("lorann_bl.png");
+						number = number +1;
+						Thread.sleep(100);
+						repaint();  
+					case 6:
+						new Sprite("lorann_l.png");
+						number = number +1;
+						Thread.sleep(100);
+						repaint();  
+					case 7:
+						new Sprite("lorann_ul.png");
+						number = 0;
+						Thread.sleep(100);
+						repaint();  
+				}
+		}
+		          
+		       catch (InterruptedException e) 
+		       { stop();}
+		   }
+	}
+		   
+
+	private void repaint() {
+		// TODO Auto-generated method stub
 		
 	}
-	
+
+	private void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void AttractSpell(){
 		
 	}
@@ -80,5 +142,5 @@ public class Lorann extends Mobile{
 		this.setY(this.lastPosition.y);
 		super.Spell();
 	}
-	
+
 }

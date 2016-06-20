@@ -53,49 +53,70 @@ public class Mobile extends Elements{
 	
 	public void MoveUp(){
 		if (this.IsMovePossible(this.getX(), this.getY() - 1)) {
+			new Sprite("lorann_u.png");
+			repaint();
 			this.setY(this.getY() - 1);
 		}
 	}
 	public void MoveLeft(){
 		if (this.IsMovePossible(this.getX() - 1, this.getY())) {
+			new Sprite("lorann_l.png");
+			repaint();
 			this.setX(this.getX() - 1);
 		}
 	}
 	public void MoveDown(){
 		if (this.IsMovePossible(this.getX(), this.getY() + 1)) {
+			new Sprite("lorann_b.png");
+			repaint();
 			this.setY(this.getY() + 1);
 		}
 	}
 	public void MoveRight(){
 		if (this.IsMovePossible(this.getX() + 1, this.getY())) {
+			new Sprite("lorann_r.png");
+			repaint();
 			this.setX(this.getX() + 1);
 		}
 	}
 	public void MoveUpLeft(){
 		if (this.IsMovePossible(this.getX() -1, this.getY() - 1)) {
+			new Sprite("lorann_ul.png");
+			repaint();
 			this.setY(this.getY() - 1);
 			this.setX(this.getX() - 1);
 		}
 	}
 	public void MoveUpRight(){
 		if (this.IsMovePossible(this.getX() +1, this.getY() - 1)) {
+			new Sprite("lorann_ur.png");
+			repaint();
 			this.setY(this.getY() - 1);
 			this.setX(this.getX() + 1);
 		}
 	}
 	public void MoveDownLeft(){
 		if (this.IsMovePossible(this.getX() -1, this.getY() + 1)) {
+			new Sprite("lorann_bl.png");
+			repaint();
 			this.setY(this.getY() + 1);
 			this.setX(this.getX() - 1);
 		}
 	}
 	public void MoveDownRight(){
 		if (this.IsMovePossible(this.getX() + 1, this.getY() + 1)) {
+			new Sprite("lorann_br.png");
+			repaint();
 			this.setY(this.getY() + 1);
 			this.setX(this.getX() + 1);
 		}
 	}
 	
+	private void repaint() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public Point getPosition(){
 		return this.position;
 	}
