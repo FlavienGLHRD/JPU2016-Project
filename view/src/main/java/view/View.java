@@ -39,26 +39,14 @@ public class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_NUMPAD4:
+			case KeyEvent.VK_G:
 				return ControllerOrder.English;
-				//this.World.getHero().moveLeft();
-			case KeyEvent.VK_NUMPAD6:
+			case KeyEvent.VK_F:
 				return ControllerOrder.Francais;
-				//this.World.getHero().moveRight();
-			case KeyEvent.VK_NUMPAD8:
+			case KeyEvent.VK_D:
 				return ControllerOrder.Deutsch;
-				//this.World.getHero().moveUp();
-			case KeyEvent.VK_NUMPAD5:
+			case KeyEvent.VK_I:
 				return ControllerOrder.Indonesia;
-				//this.World.getHero().moveDown();
-			case KeyEvent.VK_NUMPAD7:
-				//this.World.getHero().moveUpLeft();
-			case KeyEvent.VK_NUMPAD9:
-				//this.World.getHero().moveUpRight();
-			case KeyEvent.VK_NUMPAD1:
-				//this.World.getHero().moveDownLeft();
-			case KeyEvent.VK_NUMPAD3:
-				//this.World.getHero().moveDownRight();
 			default:
 				return ControllerOrder.English;
 		}
