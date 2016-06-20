@@ -13,7 +13,7 @@ public class Elements implements IElement{
 	private ISprite sprite;
 	private Permeability permeability;
 	private IWorldEntity lorannWorldEntity;
-	private IWorldEntity WorldEntity;
+	private IWorldEntity worldEntity;
 
 	
 
@@ -43,12 +43,12 @@ public class Elements implements IElement{
 		this.permeability = permeability;
 	}
 	public IWorldEntity getWorldEntity() {
-		return WorldEntity;
+		return worldEntity;
 	}
 
 
-	public void setWorldEntity(IWorldEntity WorldEntity) {
-		this.WorldEntity = WorldEntity;
+	public void setWorldEntity(IWorldEntity worldEntity) {
+		this.worldEntity = worldEntity;
 	}
 
 }

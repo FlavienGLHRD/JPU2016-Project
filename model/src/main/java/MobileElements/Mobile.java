@@ -2,110 +2,93 @@ package MobileElements;
 
 import java.awt.Point;
 
+import contract.ISprite;
+import contract.IWorldEntity;
+import contract.Permeability;
+
 import Elements.Elements;
-import Elements.Permeability;
 import Elements.Sprite;
 import World.World;
 
 public class Mobile extends Elements{
 	
+	private final int dbId;
+	private ISprite sprite;
+	protected IWorldEntity worldEntity;
 	private int x;
 	private int y;
-	private Point position;
 	
-	public Mobile(Sprite Sprite){
-		super(Sprite, Permeability.BLOCKING);
-		this.position = new Point();
+
+	public Mobile(final ISprite sprite, final Permeability permeability, final int dbId, IWorldEntity worldEntity){
+	    super(sprite, permeability);
+	    this.dbId = dbId;
+	    this.worldEntity = worldEntity;
+	}
+
+	public int getBddId() {
+		return dbId;
+	}
+
+	public int getX() {
+		return x;
 	}
 	
-	public int getX(){
-		return this.position.x;
-		
+	public void setX(int x) {
+		this.x = x;
+		this.getWorldEntity().setMobilehasChanged();
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+		this.getWorldEntity().setMobilehasChanged();
 	}
 	
-	protected void setX(int x){
-		if ((x >= 0) && (x < this.getWorld().getWidth())) {
-			this.position.x = x;
-			this.getWorld().setMobileHasChanged();
+	public ISprite getSprite() {
+		return sprite;
 	}
-	}
-	
-	public int getY(){
-		return this.position.y;
+
+	public void setSprite(ISprite sprite) {
+		this.sprite = sprite;
 	}
 	
-	protected void setY(int x){
-		if ((y >= 0) && (y < this.getWorld().getHeight())) {
-			this.position.y = y;
-			this.getWorld().setMobileHasChanged();
-		}
+	
+   /* public void moveUp(){
+    	if (getisMovePossible(getX(), getY() - 1)){
+    		setY(getY() - 1);
+    	}
+	}
+	/*
+	public void moveDown(){
+    	if (isMovePossible(getX(), getY() + 1)){
+    		setY(getY() + 1);
+    	}
 	}
 	
-	public void setWorld(World World,int x,int y){
-		super.setWorld(World);
+	public void moveRight(){
+    	if (isMovePossible(getX() + 1, getY())){
+    		setX(getX() + 1);
+    	}
+	}
+	
+	public void moveLeft(){
+    	if (isMovePossible(getX() - 1, getY())){
+    		setX(getX() - 1);
+    	}
+	}*/
+	
+	public IWorldEntity geWorldEntity() {
+		return worldEntity;
+	}
+
+	public void setWorldEntity(final IWorldEntity worldEntity, final int x, final int y) {
+		super.setWorldEntity(worldEntity);;
+		this.worldEntity = worldEntity;
 		this.setX(x);
 		this.setY(y);
-	}
-	
-	private boolean IsMovePossible(int x,int y){
-		return ((Elements) this.getWorld().getElements(x, y)).getPermeability() != Permeability.BLOCKING;
-	}
-	
-	public void MoveUp(){
-		if (this.IsMovePossible(this.getX(), this.getY() - 1)) {
-			this.setY(this.getY() - 1);
-		}
-	}
-	public void MoveLeft(){
-		if (this.IsMovePossible(this.getX() - 1, this.getY())) {
-			this.setX(this.getX() - 1);
-		}
-	}
-	public void MoveDown(){
-		if (this.IsMovePossible(this.getX(), this.getY() + 1)) {
-			this.setY(this.getY() + 1);
-		}
-	}
-	public void MoveRight(){
-		if (this.IsMovePossible(this.getX() + 1, this.getY())) {
-			this.setX(this.getX() + 1);
-		}
-	}
-	public void MoveUpLeft(){
-		if (this.IsMovePossible(this.getX() -1, this.getY() - 1)) {
-			this.setY(this.getY() - 1);
-			this.setX(this.getX() - 1);
-		}
-	}
-	public void MoveUpRight(){
-		if (this.IsMovePossible(this.getX() +1, this.getY() - 1)) {
-			this.setY(this.getY() - 1);
-			this.setX(this.getX() + 1);
-		}
-	}
-	public void MoveDownLeft(){
-		if (this.IsMovePossible(this.getX() -1, this.getY() + 1)) {
-			this.setY(this.getY() + 1);
-			this.setX(this.getX() - 1);
-		}
-	}
-	public void MoveDownRight(){
-		if (this.IsMovePossible(this.getX() + 1, this.getY() + 1)) {
-			this.setY(this.getY() + 1);
-			this.setX(this.getX() + 1);
-		}
-	}
-	
-	public Point getPosition(){
-		return this.position;
-	}
-	
-	//public void Move(){
-		
-	//}
-	
-	public void Collision(){
-		
 	}
 
 }
