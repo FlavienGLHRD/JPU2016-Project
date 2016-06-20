@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import MotionlessElements.MotionlessElements;
 import MotionlessElements.MotionlessFactory;
 import contract.ILorann;
 import contract.IMobile;
@@ -25,7 +26,7 @@ public class WorldEntity extends Observable implements IWorldEntity{
 	
 	
 	public void addElement(final IMotionless element, final int x, final int y) {
-		if(element == MotionlessFactory.getFromDbId(7)){
+		if(element == MotionlessElements.getFromDbId(7)){
 			setXdoor(x);
 			setYdoor(y);
 			System.out.println("XXXXXX");
@@ -80,10 +81,10 @@ public class WorldEntity extends Observable implements IWorldEntity{
 		
 	}
 	
-	public ILorann getLoran(){
+	public ILorann getLorann(){
 		return this.lorann;
 	}
-	public void setHero(final ILorann lorann) {
+	public void setLorann(final ILorann lorann) {
 		this.lorann = lorann;
 		this.setChanged();
 	}

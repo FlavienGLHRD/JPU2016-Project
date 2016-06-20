@@ -8,11 +8,11 @@ public interface IWorldEntity {
 
 	public void addMobile(IMobile mobile, int x, int y);
 
-	public void addHero(final ILorann hero, final int x, final int y) ;
+	public void addLorann(final ILorann lorann, final int x, final int y) ;
 	
-	public ILorann getHero();
+	public ILorann getLorann();
 	
-	public void setHero(final ILorann hero) ;
+	public void setLorann(final ILorann lorann) ;
 
 	public boolean setElement( IMotionless element, final int x, final int y);
 	

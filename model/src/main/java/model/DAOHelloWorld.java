@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Elements.Elements;
+import MotionlessElements.MotionlessElements;
 import World.World;
 
 /**
@@ -71,7 +72,7 @@ import World.World;
 	 */
 	public WorldEntity find(final int id) {
 		
-		ArrayList<Elements> addElements = new ArrayList<Elements>();
+		//ArrayList<Elements> addElements = new ArrayList<Elements>();
 		WorldEntity worldEntity = new WorldEntity();
 		try {
 			final String sql = "{call searchonlyelements(?)}";
@@ -80,9 +81,10 @@ import World.World;
 			call.executeQuery();
 			final ResultSet resultSet = call.getResultSet();
 			while (resultSet.next()) {
-				addElements.add(new Elements(resultSet.getInt("X"),resultSet.getInt("Y"),resultSet.getString("Description")));
+				worldEntity.addElement(MotionlessElements.getFromDbId(resultSet.getInt("Id_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
 			}
-			return addElements;
+			return worldEntity;
+			System.out.println(worldEntity);
 		} 
 		catch (final SQLException e) {
 			e.printStackTrace();
