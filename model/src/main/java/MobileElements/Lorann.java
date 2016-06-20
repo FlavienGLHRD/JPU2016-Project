@@ -1,21 +1,24 @@
 package MobileElements;
 
-public class Lorann{
+import Elements.Sprite;
 
-	public Lorann(){
-		
+public class Lorann extends Mobile {
+
+	public Lorann(Sprite Sprite) {
+		super(Sprite);
+		// TODO Auto-generated constructor stub
 	}
-	
-	public void Animate(){
-		
+
+	public void Animate() {
+
 	}
-	
-	public void AttractSpell(){
-		
+
+	public void AttractSpell() {
+
 	}
-	
-	public void CastSpell(){
-		
+
+	public void CastSpell() {
+
 	}
-	
+
 }

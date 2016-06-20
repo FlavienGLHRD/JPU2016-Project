@@ -7,105 +7,112 @@ import Elements.Permeability;
 import Elements.Sprite;
 import World.World;
 
-public class Mobile extends Elements{
-	
+public class Mobile extends Elements {
+
 	private int x;
 	private int y;
-	private Point position;
-	
-	public Mobile(Sprite Sprite){
+	private static Point position;
+
+	public Mobile(Sprite Sprite) {
 		super();
-		this.position = new Point();
+		position = new Point();
 	}
-	
-	public int getX(){
-		return this.position.x;
-		
+
+	public static int getX() {
+		return position.x;
+
 	}
-	
-	protected void setX(int x){
-		if ((x >= 0) && (x < this.getWorld().getWidth())) {
-			this.position.x = x;
-			this.getWorld().setMobileHasChanged();
-	}
-	}
-	
-	public int getY(){
-		return this.position.y;
-	}
-	
-	protected void setY(int x){
-		if ((y >= 0) && (y < this.getWorld().getHeight())) {
-			this.position.y = y;
-			this.getWorld().setMobileHasChanged();
+
+	protected void setX(int x) {
+		if (x >= 0 && x < getWorld().getWidth()) {
+			position.x = x;
+			getWorld().setMobileHasChanged();
 		}
 	}
-	
-	public void setWorld(World World,int x,int y){
+
+	public static int getY() {
+		return position.y;
+	}
+
+	protected void setY(int x) {
+		if (y >= 0 && y < getWorld().getHeight()) {
+			position.y = y;
+			getWorld().setMobileHasChanged();
+		}
+	}
+
+	public void setWorld(World World, int x, int y) {
 		super.setWorld(World);
-		this.setX(x);
-		this.setY(y);
+		setX(x);
+		setY(y);
 	}
-	
-	private boolean IsMovePossible(int x,int y){
-		return ((Elements) this.getWorld().getElements(x, y)).getPermeability() != Permeability.BLOCKING;
+
+	private boolean IsMovePossible(int x, int y) {
+		return ((Elements) getWorld().getElements(x, y)).getPermeability() != Permeability.BLOCKING;
 	}
-	
-	public void MoveUp(){
-		if (this.IsMovePossible(this.getX(), this.getY() - 1)) {
-			this.setY(this.getY() - 1);
+
+	public void MoveUp() {
+		if (IsMovePossible(getX(), getY() - 1)) {
+			setY(getY() - 1);
 		}
 	}
-	public void MoveLeft(){
-		if (this.IsMovePossible(this.getX() - 1, this.getY())) {
-			this.setX(this.getX() - 1);
+
+	public void MoveLeft() {
+		if (IsMovePossible(getX() - 1, getY())) {
+			setX(getX() - 1);
 		}
 	}
-	public void MoveDown(){
-		if (this.IsMovePossible(this.getX(), this.getY() + 1)) {
-			this.setY(this.getY() + 1);
+
+	public void MoveDown() {
+		if (IsMovePossible(getX(), getY() + 1)) {
+			setY(getY() + 1);
 		}
 	}
-	public void MoveRight(){
-		if (this.IsMovePossible(this.getX() + 1, this.getY())) {
-			this.setX(this.getX() + 1);
+
+	public void MoveRight() {
+		if (IsMovePossible(getX() + 1, getY())) {
+			setX(getX() + 1);
 		}
 	}
-	public void MoveUpLeft(){
-		if (this.IsMovePossible(this.getX() -1, this.getY() - 1)) {
-			this.setY(this.getY() - 1);
-			this.setX(this.getX() - 1);
+
+	public void MoveUpLeft() {
+		if (IsMovePossible(getX() - 1, getY() - 1)) {
+			setY(getY() - 1);
+			setX(getX() - 1);
 		}
 	}
-	public void MoveUpRight(){
-		if (this.IsMovePossible(this.getX() +1, this.getY() - 1)) {
-			this.setY(this.getY() - 1);
-			this.setX(this.getX() + 1);
+
+	public void MoveUpRight() {
+		if (IsMovePossible(getX() + 1, getY() - 1)) {
+			setY(getY() - 1);
+			setX(getX() + 1);
 		}
 	}
-	public void MoveDownLeft(){
-		if (this.IsMovePossible(this.getX() -1, this.getY() + 1)) {
-			this.setY(this.getY() + 1);
-			this.setX(this.getX() - 1);
+
+	public void MoveDownLeft() {
+		if (IsMovePossible(getX() - 1, getY() + 1)) {
+			setY(getY() + 1);
+			setX(getX() - 1);
 		}
 	}
-	public void MoveDownRight(){
-		if (this.IsMovePossible(this.getX() + 1, this.getY() + 1)) {
-			this.setY(this.getY() + 1);
-			this.setX(this.getX() + 1);
+
+	public void MoveDownRight() {
+		if (IsMovePossible(getX() + 1, getY() + 1)) {
+			setY(getY() + 1);
+			setX(getX() + 1);
 		}
 	}
-	
-	public Point getPosition(){
-		return this.position;
+
+	public Point getPosition() {
+		return position;
 	}
-	
-	//public void Move(){
-		
-	//}
-	
-	public void Collision(){
-		
+
+	// public void Move(){
+
+	// }
+
+	public void Collision() {
+
 	}
 
 }
