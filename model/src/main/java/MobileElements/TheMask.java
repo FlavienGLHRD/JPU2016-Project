@@ -4,7 +4,7 @@ import java.util.Random;
 
 import Elements.Sprite;
 
-public class TheMask extends Mobile {
+public class TheMask extends Monster {
 
 	public TheMask(Sprite Sprite) {
 		super(Sprite);
