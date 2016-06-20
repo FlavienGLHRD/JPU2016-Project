@@ -20,9 +20,9 @@ public class Spell {
 		return INSTANCE;
 	}
 	
-	//public Spell() {
-		//super(new Sprite("camp.jpg"), Permeability.PENETRABLE, 'C');
-	//}
+	public Spell() {
+		super(new Sprite("camp.jpg"), Permeability.PENETRABLE, 'C');
+	}
 	
 	//private static Singleton;
 	
