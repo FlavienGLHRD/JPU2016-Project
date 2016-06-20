@@ -19,28 +19,34 @@ public class Spell {
 		return INSTANCE;
 	}
 	
-	switch(number)
-	{
-		case 0:
-			super(new Sprite("fireball_1.jpg"), Permeability.PENETRABLE, 'e');
-			number = number +1;
-			break;
-		case 1:
-			super(new Sprite("fireball_2.jpg"), Permeability.PENETRABLE, 'e');
-			number = number +1;
-			break;
-		case 2:
-			super(new Sprite("fireball_3.jpg"), Permeability.PENETRABLE, 'e');
-			number = number +1;
-			break;
-		case 3:
-			super(new Sprite("fireball_4.jpg"), Permeability.PENETRABLE, 'e');
-			number = number +1;
-			break;
-		case 4:
-			super(new Sprite("fireball_5.jpg"), Permeability.PENETRABLE, 'e');
-			number = 0;
-			break;
+	private void saveLastPosition() {
+		if ((this.lastPosition.getX() != this.getPosition().getX()) || (this.lastPosition.getY() != this.getPosition().getY())) {
+			
+			switch(number)
+			{
+				case 0:
+					super(new Sprite("fireball_1.png"), Permeability.PENETRABLE, 'e');
+					number = number +1;
+					break;
+				case 1:
+					super(new Sprite("fireball_2.png"), Permeability.PENETRABLE, 'e');
+						number = number +1;
+					break;
+				case 2:
+					super(new Sprite("fireball_3.png"), Permeability.PENETRABLE, 'e');
+					number = number +1;
+					break;
+				case 3:
+					super(new Sprite("fireball_4.png"), Permeability.PENETRABLE, 'e');
+					number = number +1;
+					break;
+				case 4:
+					super(new Sprite("fireball_5.png"), Permeability.PENETRABLE, 'e');
+					number = 0;
+					break;
+			}
+	
+		}
 	}
 	
 	/*public Spell() {
@@ -113,4 +119,8 @@ public class Spell {
 	}
 
 }
-
+/*private void saveLastPosition() {
+		if ((this.lastPosition.getX() != this.getPosition().getX()) || (this.lastPosition.getY() != this.getPosition().getY())) {
+			this.lastPosition.setLocation(this.getPosition().x, this.getPosition().y);
+		}
+	}
