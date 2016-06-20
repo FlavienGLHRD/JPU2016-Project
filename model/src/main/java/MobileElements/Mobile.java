@@ -10,7 +10,7 @@ import World.World;
 public class Mobile extends Elements {
 
 	private int x;
-	private int y;
+	private static int y;
 	private static Point position;
 
 	public Mobile(Sprite Sprite) {
@@ -23,7 +23,7 @@ public class Mobile extends Elements {
 
 	}
 
-	protected void setX(int x) {
+	protected static void setX(int x) {
 		if (x >= 0 && x < getWorld().getWidth()) {
 			position.x = x;
 			getWorld().setMobileHasChanged();
@@ -34,7 +34,7 @@ public class Mobile extends Elements {
 		return position.y;
 	}
 
-	protected void setY(int x) {
+	protected static void setY(int x) {
 		if (y >= 0 && y < getWorld().getHeight()) {
 			position.y = y;
 			getWorld().setMobileHasChanged();
@@ -112,6 +112,9 @@ public class Mobile extends Elements {
 	// }
 
 	public void Collision() {
+		if (Lorann.getX() == Monster.getX() && Lorann.getY() == Monster.getY()) {
+			System.out.print("you loose");
+		}
 
 	}
 
