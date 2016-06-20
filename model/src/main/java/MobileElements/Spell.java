@@ -2,8 +2,27 @@ package MobileElements;
 
 import Elements.Elements;
 import Elements.Permeability;
+import Elements.Sprite;
 
 public class Spell {
+	int aa = 0;
+	
+	private Spell()
+	{}
+ 
+	private static Spell INSTANCE = null;
+ 
+	public static Spell getInstance()
+	{			
+		if (INSTANCE == null)
+		{ 	INSTANCE = new Spell();	
+		}
+		return INSTANCE;
+	}
+	
+	public Spell() {
+		super(new Sprite("camp.jpg"), Permeability.PENETRABLE, 'C');
+	}
 	
 	//private static Singleton;
 	
