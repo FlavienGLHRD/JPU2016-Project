@@ -111,15 +111,6 @@ public class WorldEntity extends Observable implements IWorldEntity{
 		for(;;){
 			this.setChanged();
 			this.notifyObservers();
-			/*try{
-				Thread.sleep(125);
-			} catch (final InterruptedException e){
-				e.printStackTrace();
-			}
-			
-			//for (final IMobile mobile : this.mobiles){
-				
-			//}*/
 		}
 	}
 		
