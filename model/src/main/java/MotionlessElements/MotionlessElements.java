@@ -1,7 +1,5 @@
 package MotionlessElements;
 
-import contract.IMotionless;
-
 public abstract class MotionlessElements {
 		
 		public static final MotionlessElements BONESH = new BonesH();
@@ -15,7 +13,7 @@ public abstract class MotionlessElements {
 		
 		public static MotionlessElements getFromDbId(int dbId){
 			for ( MotionlessElements motionlessElements : MotionlessElements){
-				if(MotionlessFactory.getDbId() == dbId) {
+				if(MotionlessFactory.getdbId() == dbId) {
 					return motionlessElements;
 				}
 			}

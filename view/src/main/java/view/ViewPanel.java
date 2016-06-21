@@ -88,7 +88,7 @@ private ViewFrame	viewFrame;
 				if(this.elements[x][y] != null){
 					graphics.drawImage(this.elements[x][y].getSprite().getImage(), x*32, y*32,null);
 				} else {
-					graphics.setColor(new Color(0,0,0));
+					graphics.setColor(Color.BLACK);
 					graphics.fillRect(x*32, y*32, 32, 32);
 				}
 			}

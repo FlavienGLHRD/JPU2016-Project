@@ -26,7 +26,7 @@ public class WorldEntity extends Observable implements IWorldEntity{
 	
 	
 	public void addElement(final IMotionless element, final int x, final int y) {
-		if(element == MotionlessElements.getFromDbId(7)){
+		if(element == MotionlessElements.getFromDbId(1)){
 			setXdoor(x);
 			setYdoor(y);
 			System.out.println("XXXXXX");
@@ -34,12 +34,7 @@ public class WorldEntity extends Observable implements IWorldEntity{
 			System.out.println("YYYYYY");
 			System.out.println(getYdoor());
 		}
-		/*System.out.println(element);
-			
-			System.out.println("XXXXXX");
-			System.out.println(getXdoor());
-			System.out.println("YYYYYY");
-			System.out.println(getYdoor());*/
+		
 		
 		this.elements[x][y] = element;
 		if (element != null) {

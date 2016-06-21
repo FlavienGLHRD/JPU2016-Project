@@ -1,6 +1,6 @@
 package MotionlessElements;
 
-public interface IMotionlessElements {
-	public void Sprite();
-
+public interface IMotionlessElements <dbId>{
+public void Sprite();
+dbId getdbId();
 }

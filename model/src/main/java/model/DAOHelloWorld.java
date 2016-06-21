@@ -81,7 +81,7 @@ import contract.IMotionless;
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			while (resultSet.next()) {
-				worldEntity.addElement((IMotionless) MotionlessElements.getFromDbId(resultSet.getInt("ID_MotionlessElements")), resultSet.getInt("positionX"), resultSet.getInt("positionY"));
+				worldEntity.addElement((IMotionless) MotionlessElements.getFromDbId(resultSet.getInt("ID_MotionlessElements")), resultSet.getInt("X"), resultSet.getInt("Y"));
 			}
 			return worldEntity;
 			//System.out.println(worldEntity);

@@ -7,13 +7,16 @@ import java.io.StringWriter;
 
 import javax.imageio.ImageIO;
 
-public class Sprite extends StringWriter{
+import contract.ISprite;
+
+public class Sprite implements ISprite{
 	private Image image;
+	private static final String FILE = "";
+
 	
-	public Sprite(final String c, final String image){
-		this.write(c);
+	public Sprite(final String image){
 		try {
-			this.image = ImageIO.read(new File("images/" + image));
+			this.image = ImageIO.read(new File("..////view//sprite//" + image));
 			
 		}
 		catch (IOException e) {
@@ -21,13 +24,12 @@ public class Sprite extends StringWriter{
 		}
 		
 	}
-	
-	public Sprite (final String c) {
-		this(c, "noimage.jpg");
 		
-	}
-	
 	public Image getImage() {
 		return this.image;
+	}
+	
+	public static String getFile() {
+		return FILE;
 	}
 }
